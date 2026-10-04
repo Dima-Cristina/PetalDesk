@@ -4,18 +4,12 @@
 - Claude (chat)
 
 ## Conversations
-- <PASTE YOUR SHARE LINK HERE> (stage 1: HTML/CSS mockup and Git steps for a flower shop app)
+- <(https://claude.ai/share/b79eb395-ea60-4417-aea0-a53f70bb49e6)> (stage 1: HTML/CSS mockup and Git steps for a flower shop app)
 
 ## Key requests
 ### 1. Mockup code and Git workflow
-- Asked: for the HTML, CSS, README and Git steps for stage 1, with a flower shop theme
-- Got: index.html, style.css, README.md and the list of git commands
-- Changed or rejected: <WRITE WHAT YOU CHANGED, e.g. colors, names, texts, and why>
-
-### 2. <short title>
-- Asked: <what I asked>
-- Got: <what the answer suggested>
-- Changed or rejected: <what I did differently and why>
+- Asked: for the HTML, CSS and Git steps for stage 1, with a flower shop theme
+- Got: index.html, style.css and the list of git commands
 
 ## What I learned / what did not work
-<Write 3-4 lines in your own words: what Grid/Flexbox/CSS variables do, what you had to fix.>
+<I learned how to build a page with header, main, section, footer and how to lay it out with CSS Grid for the two columns and Flexbox for the form and the cards.>
