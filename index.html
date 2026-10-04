@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PetalDesk - mockup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>PetalDesk</h1>
+    <p>Gestionează comenzile florăriei tale: buchete, aranjamente și plante.</p>
+    <p class="app-count">3 comenzi, dintre care 2 în pregătire</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Adaugă comandă</h2>
+      <form class="item-form">
+        <label>
+          Nume comandă
+          <input type="text" name="titlu" placeholder="Ex: Buchet de trandafiri roșii" />
+        </label>
+        <label>
+          Tip
+          <select name="eticheta">
+            <option value="buchet">Buchet</option>
+            <option value="aranjament">Aranjament</option>
+            <option value="planta">Plantă</option>
+          </select>
+        </label>
+        <button type="submit">Adaugă</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Comenzile mele</h2>
+      <!-- Când lista e goală: <p class="empty">Nu există nicio comandă.</p> -->
+      <ul class="item-list">
+        <li class="item-card">
+          <div>
+            <h3>Buchet de trandafiri roșii</h3>
+            <span class="badge badge-buchet">Buchet</span>
+          </div>
+          <span class="status">În pregătire</span>
+        </li>
+        <li class="item-card done">
+          <div>
+            <h3>Aranjament floral nuntă</h3>
+            <span class="badge badge-aranjament">Aranjament</span>
+          </div>
+          <span class="status">Livrată</span>
+        </li>
+        <li class="item-card">
+          <div>
+            <h3>Orhidee în ghiveci</h3>
+            <span class="badge badge-planta">Plantă</span>
+          </div>
+          <span class="status">În pregătire</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">Proiect Tehnologii Web</footer>
+</body>
+</html>
