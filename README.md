@@ -19,8 +19,12 @@ Sample data used across all stages:
 3. Orhidee în ghiveci, in preparation, plant
 
 ## How to run
-
-Open `index.html` in a browser. No build step, no server.
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Then open the address printed in the terminal (http://localhost:5173).
 
 ## AI usage
 
@@ -34,10 +38,15 @@ Details per stage: see the ai-log/ folder.
 Plain JavaScript, no DOM. `comenzi.js` holds the array and the functions
 that read and change it. Results are printed in the browser console (F12).
 
+## Stage 3: Vite and React project
+The app now lives in `frontend/`, built with Vite. The data from stage 2
+moved into the main component; the list is still printed raw.
+
 ## Status
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
-- [ ] Stage 3: Vite and React project
+- [x] Stage 3: Vite and React project
+- [ ] Stage 4: components built from data
 
 ## Verification table
 
