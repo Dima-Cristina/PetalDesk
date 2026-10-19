@@ -60,6 +60,7 @@ moved into the main component; the list is still printed raw.
 | S1-R6 | 2 columns on desktop, 1 under 700px | https://github.com/Dima-Cristina/PetalDesk/blob/6c7da083682b2b32cb1577b769d88f64c7d2fb9e/style.css#L159-L162 , https://github.com/Dima-Cristina/PetalDesk/blob/6c7da083682b2b32cb1577b769d88f64c7d2fb9e/style.css#L38-L47 | resize < 700px |
 | S1-R7 | visible focus, readable dark theme | https://github.com/Dima-Cristina/PetalDesk/blob/6c7da083682b2b32cb1577b769d88f64c7d2fb9e/style.css#L140-L157 | Tab; dark mode |
 | S1-R8 | commit "Stage 1" pushed | https://github.com/Dima-Cristina/PetalDesk/commit/253b969e5a05be89a4e6386a26778f03ca5b1644 | commit history |
+## Verification table (Stage 2)
 | S2-R1 | JS file linked, logs on page load | https://github.com/Dima-Cristina/PetalDesk/blob/139e85d10c807c1b99b7a0b370bcd3fa50d96f1e/index.html#L66 | open page, F12 |
 | S2-R2 | 3+ items with id, name, state, tag | https://github.com/Dima-Cristina/PetalDesk/blob/139e85d10c807c1b99b7a0b370bcd3fa50d96f1e/comenzi.js#L3-L9 | read |
 | S2-R3 | list, count, search, add, toggle, delete | https://github.com/Dima-Cristina/PetalDesk/blob/139e85d10c807c1b99b7a0b370bcd3fa50d96f1e/comenzi.js#L12-L55 | console output |
@@ -67,3 +68,14 @@ moved into the main component; the list is still printed raw.
 | S2-R5 | original array unchanged after add | https://github.com/Dima-Cristina/PetalDesk/blob/139e85d10c807c1b99b7a0b370bcd3fa50d96f1e/comenzi.js#L66 | console line |
 | S2-R6 | README Stage 2 section + AI log | README.md, ai-log/etapa02.md | read |
 | S2-R7 | commit “Stage 2” pushed | https://github.com/Dima-Cristina/PetalDesk/commit/139e85d10c807c1b99b7a0b370bcd3fa50d96f1e | commit history |
+## Verification table (Stage 3)
+
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S3-R1 | npm run dev starts without errors | frontend/package.json | npm install, npm run dev |
+| S3-R2 | app name and counter computed from data | https://github.com/Dima-Cristina/PetalDesk/blob/545ef1080b0f056d30c326d4cb81a21aba27b6d5/frontend/src/App.jsx#L8-L18 | edit data, save |
+| S3-R3 | data from README, not from the example | https://github.com/Dima-Cristina/PetalDesk/blob/545ef1080b0f056d30c326d4cb81a21aba27b6d5/frontend/src/App.jsx#L1-L5 | compare with README |
+| S3-R4 | stage 1 styles reused | frontend/src/App.css | look at the page |
+| S3-R5 | node_modules ignored, build passes | frontend/.gitignore | npm run build |
+| S3-R6 | README Stage 3 section + AI log | README.md, ai-log/etapa-03.md | read |
+| S3-R7 | commit "Stage 3" pushed | https://github.com/Dima-Cristina/PetalDesk/commit/a7a8a04699def08c3f73363854eec264e0583b44 | commit history |
