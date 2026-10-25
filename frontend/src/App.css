@@ -161,3 +161,10 @@ button:hover { background: var(--accent-dark); }
 @media (max-width: 700px) {
   .container { grid-template-columns: 1fr; }
 }
+
+/* Empty list message */
+.empty {
+  color: var(--muted);
+  font-style: italic;
+  margin: 0;
+}

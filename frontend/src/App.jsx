@@ -1,3 +1,5 @@
+import ComandaList from "./components/ComandaList.jsx";
+
 const comenzi = [
   { id: 1, nume: "Buchet de trandafiri roșii", livrata: false, tip: "buchet" },
   { id: 2, nume: "Aranjament floral nuntă", livrata: true, tip: "aranjament" },
@@ -20,8 +22,7 @@ export default function App() {
       <main className="container">
         <section className="panel">
           <h2>Comenzile mele</h2>
-          {/* Temporar: date brute; componentele apar în Etapa 4 */}
-          <pre>{JSON.stringify(comenzi, null, 2)}</pre>
+          <ComandaList comenzi={comenzi} />
         </section>
       </main>
     </>

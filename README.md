@@ -42,11 +42,17 @@ that read and change it. Results are printed in the browser console (F12).
 The app now lives in `frontend/`, built with Vite. The data from stage 2
 moved into the main component; the list is still printed raw.
 
+## Stage 4: components
+The list is rendered from the data, through two components:
+- `ComandaList` receives the whole array and renders one card per item
+- `ComandaCard` receives a single item through props and displays it
+
+
 ## Status
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
 - [x] Stage 3: Vite and React project
-- [ ] Stage 4: components built from data
+- [x] Stage 4: components built from data
 
 ## Verification table
 
