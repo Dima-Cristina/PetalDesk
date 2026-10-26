@@ -11,6 +11,8 @@
   --border: #e8e1e4;
   --focus: #be185d;
   --on-accent: #ffffff;
+  --danger: #dc2626;
+  --on-danger: #ffffff;
   /* one color per tag value */
   --badge-buchet: #db2777;
   --badge-aranjament: #b45309;
@@ -144,9 +146,9 @@ button:hover { background: var(--accent-dark); }
   outline-offset: 2px;
 }
 
-/* Dark theme: only the variables change */
+/* System theme, unless the user explicitly chose the light theme */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #17121a;
     --card: #221a26;
     --text: #e5e7eb;
@@ -154,7 +156,22 @@ button:hover { background: var(--accent-dark); }
     --border: #3d3042;
     --accent-soft: #3a2140;
     --focus: #f9a8d4;
+    --danger: #f87171;
+    --on-danger: #17121a;
   }
+}
+
+/* Stage 5: the theme chosen with the button has priority over the system one */
+:root[data-theme="dark"] {
+  --bg: #17121a;
+  --card: #221a26;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #3d3042;
+  --accent-soft: #3a2140;
+  --focus: #f9a8d4;
+  --danger: #f87171;
+  --on-danger: #17121a;
 }
 
 /* Narrow screens (keep at the end of the file) */
@@ -168,3 +185,52 @@ button:hover { background: var(--accent-dark); }
   font-style: italic;
   margin: 0;
 }
+
+/* Stage 5: checkbox and delete button in the card */
+.item-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.item-main input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.btn-danger {
+  border: 1px solid var(--danger);
+  background: transparent;
+  color: var(--danger);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background: var(--danger);
+  color: var(--on-danger);
+}
+
+/* Stage 5: theme toggle button in the corner of the header */
+.app-header { position: relative; }
+
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.theme-toggle:hover { background: rgba(255, 255, 255, 0.15); }
