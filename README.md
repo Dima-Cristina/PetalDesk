@@ -92,3 +92,12 @@ which is what stage 6 and stage 10 fix.
 | S3-R5 | node_modules ignored, build passes | frontend/.gitignore | npm run build |
 | S3-R6 | README Stage 3 section + AI log | README.md, ai-log/etapa-03.md | read |
 | S3-R7 | commit "Stage 3" pushed | https://github.com/Dima-Cristina/PetalDesk/commit/a7a8a04699def08c3f73363854eec264e0583b44 | commit history |
+## Verification table (Stage 4)
+| S4-R1 | 2+ components in src/components/ | [frontend/src/components/]https://github.com/Dima-Cristina/PetalDesk/tree/eb3d017986c32a89401909a287fcecd2a738c744/frontend/src/components | open folder |
+| S4-R2 | card receives data through props |https://github.com/Dima-Cristina/PetalDesk/blob/eb3d017986c32a89401909a287fcecd2a738c744/frontend/src/components/ComandaCard.jsx#L8-L20 | read |
+| S4-R3 | map + key={id}, no console warnings | https://github.com/Dima-Cristina/PetalDesk/blob/eb3d017986c32a89401909a287fcecd2a738c744/frontend/src/components/ComandaList.jsx#L8-L14 | F12, Console |
+| S4-R4 | message for empty list | https://github.com/Dima-Cristina/PetalDesk/blob/eb3d017986c32a89401909a287fcecd2a738c744/frontend/src/components/ComandaList.jsx#L4-L7 | set array to [] |
+| S4-R5 | state changes the card look | https://github.com/Dima-Cristina/PetalDesk/blob/eb3d017986c32a89401909a287fcecd2a738c744/frontend/src/components/ComandaCard.jsx#L10 | toggle a done flag |
+| S4-R6 | README Stage 4 section + AI log | [README.md]https://github.com/Dima-Cristina/PetalDesk/blob/eb3d017986c32a89401909a287fcecd2a738c744/README.md, [ai-log/etapa-04.md](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/ai-log/etapa-04.md) | read |
+| S4-R7 | commit "Stage 4" pushed | [commit](https://github.com/Dima-Cristina/PetalDesk/commit/<commit>) | commit history |
+| S4-R7 | commit "Stage 4" pushed | https://github.com/Dima-Cristina/PetalDesk/commit/549239bc0ae8598560f2f1ed0cd6af7f4d80c3b2 | commit history |
