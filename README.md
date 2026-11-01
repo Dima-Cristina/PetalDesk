@@ -101,3 +101,16 @@ which is what stage 6 and stage 10 fix.
 | S4-R6 | README Stage 4 section + AI log | [README.md]https://github.com/Dima-Cristina/PetalDesk/blob/eb3d017986c32a89401909a287fcecd2a738c744/README.md, [ai-log/etapa-04.md](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/ai-log/etapa-04.md) | read |
 | S4-R7 | commit "Stage 4" pushed | [commit](https://github.com/Dima-Cristina/PetalDesk/commit/<commit>) | commit history |
 | S4-R7 | commit "Stage 4" pushed | https://github.com/Dima-Cristina/PetalDesk/commit/549239bc0ae8598560f2f1ed0cd6af7f4d80c3b2 | commit history |
+
+## Verification table (Stage 5)
+
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S5-R1 | list kept in useState, in App | [App.jsx#L17](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/App.jsx#L17) | read |
+| S5-R2 | toggling changes state and card look | [App.jsx#L21-L25](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/App.jsx#L21-L25), [ComandaCard.jsx#L10-L16](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/components/ComandaCard.jsx#L10-L16) | click a checkbox |
+| S5-R3 | delete removes the item | [App.jsx#L27-L29](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/App.jsx#L27-L29), [ComandaCard.jsx#L24-L30](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/components/ComandaCard.jsx#L24-L30) | click Delete |
+| S5-R4 | header counter derived, not in state | [App.jsx#L39](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/App.jsx#L39) | toggle, watch header |
+| S5-R5 | immutable updates (no push, splice, assignment) | [App.jsx#L21-L29](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/App.jsx#L21-L29) | read |
+| S5-R6 | light / dark toggle: state + data-theme on html | [App.jsx#L32-L36](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/App.jsx#L32-L36), [App.css#L149-L176](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/App.css#L149-L176) | click the button, both system themes |
+| S5-R7 | no console warnings; README + AI log | [README.md](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/README.md), [ai-log/etapa-05.md](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/ai-log/etapa-05.md) | F12, Console |
+| S5-R8 | commit "Stage 5" pushed | [commit](https://github.com/Dima-Cristina/PetalDesk/commit/<commit>) | commit history |
