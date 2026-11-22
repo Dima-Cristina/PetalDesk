@@ -66,18 +66,6 @@ a controlled form. Names are required and limited to 100 characters.
 Creating, marking as delivered, and deleting an order are saved through the
 API before the page updates, so changes survive a refresh.
 
-## Stage 7 verification
-
-| ID | Requirement | Where | How to check |
-| -- | ----------- | ----- | ------------ |
-| S7-R1 | Controlled fields for the order name and flower type | `frontend/src/components/ComandaForm.jsx` | Change both fields |
-| S7-R2 | Empty names show an inline error without an API request | `frontend/src/components/ComandaForm.jsx` | Submit an empty form |
-| S7-R3 | New orders use the API response and survive a refresh | `frontend/src/App.jsx`, `frontend/src/api.js` | Add an order, refresh |
-| S7-R4 | Delivery and deletion changes survive a refresh | `frontend/src/App.jsx`, `frontend/src/api.js` | Toggle or delete, refresh |
-| S7-R5 | Submit is disabled while saving; fields clear only after success | `frontend/src/components/ComandaForm.jsx` | Delay or stop the API |
-| S7-R6 | `tw.json` and required `data-testid` attributes are present | `tw.json`, `frontend/src/components/` | Inspect elements in the browser |
-| S7-R7 | Stage documentation and AI log are included | `README.md`, `ai-log/etapa-07.md` | Read the files |
-| S7-R8 | Stage 7 changes are committed and published | GitHub commit history | Check the published commit |
 
 
 ## Status
@@ -142,3 +130,28 @@ API before the page updates, so changes survive a refresh.
 | S5-R6 | light / dark toggle: state + data-theme on html | [App.jsx#L32-L36](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/App.jsx#L32-L36), [App.css#L149-L176](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/frontend/src/App.css#L149-L176) | click the button, both system themes |
 | S5-R7 | no console warnings; README + AI log | [README.md](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/README.md), [ai-log/etapa-05.md](https://github.com/Dima-Cristina/PetalDesk/blob/<commit>/ai-log/etapa-05.md) | F12, Console |
 | S5-R8 | commit "Stage 5" pushed | [commit](https://github.com/Dima-Cristina/PetalDesk/commit/<commit>) | commit history |
+
+## Stage 6 verification
+
+| ID | Requirement | Where | How to check |
+| -- | ----------- | ----- | ------------ |
+| S6-R1 | npm run api starts, routeshows JSON | [frontend/package.json](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/package.json#L11), [frontend/db.json](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/db.json#L1-L28) | Run `npm run api`, open `localhost:3001/comenzi` |
+| S6-R2 | data no longer in React code | [frontend/src/App.jsx](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/App.jsx#L19-L22) | Read `useState([])` |
+| S6-R3 | Loading message appears while waiting | [frontend/src/App.jsx](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/App.jsx#L121-L124) | Start the API with `--delay 4000` |
+| S6-R4 | Error message appears when the API is down | [frontend/src/App.jsx](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/App.jsx#L126-L130) | Stop `npm run api`, refresh |
+| S6-R5 | Fetch is isolated in `api.js` and URL uses the environment variable | [frontend/src/api.js](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/api.js#L2-L16), [frontend/env.example](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/env.example#L2) | Search for `fetch` and inspect the environment variable |
+| S6-R6 | Stage 6 README section and AI log exist | [README.md](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/README.md?plain=1#L60-L61), [ai-log/etapa-06.md](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/ai-log/etapa-06.md) | Read |
+| S6-R7 | Stage 6 commit is pushed | GitHub commit history | 3235b2587bdce457524d27001862ede51bf8d203 |
+
+## Stage 7 verification
+
+| ID | Requirement | Where | How to check |
+| -- | ----------- | ----- | ------------ |
+| S7-R1 | Controlled fields for the order name and flower type | [ComandaForm.jsx#L8-L92](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/components/ComandaForm.jsx#L8-L92) | Read |
+| S7-R2 | Empty name shows an error and nothing is sent | [ComandaForm.jsx#L16-L44](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/components/ComandaForm.jsx#L16-L44) | Submit empty, watch Network |
+| S7-R3 | Added order appears and survives refresh | [App.jsx#L53-L57](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/App.jsx#L53-L57), [api.js#L19-L24](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/api.js#L19-L24) | Add an order, refresh |
+| S7-R4 | Delivery and deletion changes survive refresh | [App.jsx#L59-L84](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/App.jsx#L59-L84), [api.js#L26-L35](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/api.js#L26-L35) | Toggle or delete, refresh |
+| S7-R5 | Submit is disabled while saving; fields clear only after success | [ComandaForm.jsx#L25-L47](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/components/ComandaForm.jsx#L25-L47), [ComandaForm.jsx#L91-L93](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/components/ComandaForm.jsx#L91-L93) | Delay or stop the API |
+| S7-R6 | `tw.json` and required `data-testid` attributes are present | [tw.json#L1-L7](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/tw.json#L1-L7), [ComandaCard.jsx#L9-L34](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/components/ComandaCard.jsx#L9-L34) | Inspect elements in the browser |
+| S7-R7 | Stage documentation and AI log are included | [README.md#L63-L66](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/README.md?plain=1#L63-L66), [etapa-07.md#L1-L19](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/ai-log/etapa-07.md?plain=1#L1-L19) | Read the files |
+| S7-R8 | Stage 7 changes are committed and published | [3235b25](https://github.com/Dima-Cristina/PetalDesk/commit/3235b2587bdce457524d27001862ede51bf8d203) | Commit history |
