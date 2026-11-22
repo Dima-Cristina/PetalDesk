@@ -16,6 +16,10 @@ export function fetchComenzi() {
   return request("/comenzi");
 }
 
+export function fetchComanda(id) {
+  return request(`/comenzi/${id}`);
+}
+
 export function createComanda(comanda) {
   return request("/comenzi", {
     method: "POST",

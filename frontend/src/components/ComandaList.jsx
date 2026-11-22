@@ -1,4 +1,5 @@
 import ComandaCard from "./ComandaCard.jsx";
+import styles from "./ComandaList.module.css";
 
 // Receives the list and the functions and passes them to every card.
 export default function ComandaList({ comenzi, onToggle, onDelete }) {
@@ -11,7 +12,7 @@ export default function ComandaList({ comenzi, onToggle, onDelete }) {
   }
 
   return (
-    <ul className="item-list">
+    <ul className={styles.list}>
       {comenzi.map((comanda) => (
         <ComandaCard
           key={comanda.id}

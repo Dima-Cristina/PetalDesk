@@ -2,14 +2,17 @@
 import { StrictMode } from "react";
 // createRoot connects React to the page.
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 // The main component of the app.
 import App from "./App.jsx";
 // The styles are imported here, so they apply to the whole app.
-import "./App.css";
+import "./index.css";
 
 // Finds <div id="root"> from index.html and draws the App component inside it.
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 );

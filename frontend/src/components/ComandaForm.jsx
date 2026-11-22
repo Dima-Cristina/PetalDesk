@@ -1,10 +1,6 @@
 import { useState } from "react";
-
-const TIPURI = [
-  { value: "buchet", label: "Buchet" },
-  { value: "aranjament", label: "Aranjament floral" },
-  { value: "planta", label: "Plantă în ghiveci" },
-];
+import { TIPURI } from "../constants.js";
+import styles from "./ComandaForm.module.css";
 const NUME_MAX = 100;
 
 export default function ComandaForm({ onAdd }) {
@@ -51,7 +47,7 @@ export default function ComandaForm({ onAdd }) {
 
   return (
     <form
-      className="item-form"
+      className={styles.form}
       onSubmit={handleSubmit}
       noValidate
       data-testid="form"

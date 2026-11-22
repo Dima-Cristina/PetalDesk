@@ -66,6 +66,15 @@ a controlled form. Names are required and limited to 100 characters.
 Creating, marking as delivered, and deleting an order are saved through the
 API before the page updates, so changes survive a refresh.
 
+## Stage 8: navigation and component styles
+React Router splits PetalDesk into an order list, a detail page at
+`/comenzi/:id`, an about page and a 404 page. Navigation stays in the app
+without full-page reloads. The shared header and footer live in a layout,
+and component styles are kept in CSS Modules; `index.css` contains shared
+colors, panels, badges, errors and theme styles.
+
+The detail page loads the selected floral order from JSON Server. It shows
+loading and error states, the flower type, delivery status and order ID.
 
 
 ## Status
@@ -76,6 +85,7 @@ API before the page updates, so changes survive a refresh.
 - [x] Stage 5: local state and events
 - [x] Stage 6: data from a mock API
 - [x] Stage 7: form and validation
+- [x] Stage 8: routing, order details and CSS Modules
 
 ## Verification table
 
@@ -155,3 +165,15 @@ API before the page updates, so changes survive a refresh.
 | S7-R6 | `tw.json` and required `data-testid` attributes are present | [tw.json#L1-L7](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/tw.json#L1-L7), [ComandaCard.jsx#L9-L34](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/frontend/src/components/ComandaCard.jsx#L9-L34) | Inspect elements in the browser |
 | S7-R7 | Stage documentation and AI log are included | [README.md#L63-L66](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/README.md?plain=1#L63-L66), [etapa-07.md#L1-L19](https://github.com/Dima-Cristina/PetalDesk/blob/3235b2587bdce457524d27001862ede51bf8d203/ai-log/etapa-07.md?plain=1#L1-L19) | Read the files |
 | S7-R8 | Stage 7 changes are committed and published | [3235b25](https://github.com/Dima-Cristina/PetalDesk/commit/3235b2587bdce457524d27001862ede51bf8d203) | Commit history |
+
+## Stage 8 verification
+
+| ID | Requirement | Where | How to check |
+| -- | ----------- | ----- | ------------ |
+| S8-R1 | header navigation changes page without reload | [App.jsx](frontend/src/App.jsx), [Layout.jsx](frontend/src/components/Layout.jsx) | Open `/`, `/despre` and an unknown path |
+| S8-R2 | Order links open details at the `tw.json` resource route | [ComandaCard.jsx](frontend/src/components/ComandaCard.jsx), [tw.json](tw.json) | Click an order name; check that it opens `/comenzi/:id` |
+| S8-R3 | Detail page loads the matching order and exposes loading/error states | [ComandaDetaliuPage.jsx](frontend/src/pages/ComandaDetaliuPage.jsx), [api.js](frontend/src/api.js) | Refresh `/comenzi/1`; then try `/comenzi/999` |
+| S8-R4 | Component and page styles use CSS Modules; shared styles remain global | [components/](frontend/src/components/), [pages/](frontend/src/pages/), [index.css](frontend/src/index.css) | Inspect stylesheet imports |
+| S8-R5 | Stage 8 README and AI log are included | [README.md](README.md), [etapa-08.md](ai-log/etapa-08.md) | Read |
+| S8-R6 | Production build and lint pass | [package.json](frontend/package.json) | Run `npm run build` and `npm run lint` in `frontend/` |
+| S8-R7 | Stage 8 commit and push | Not done, as requested | Create and push the commit yourself |
