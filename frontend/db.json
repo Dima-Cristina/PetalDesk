@@ -1,0 +1,28 @@
+{
+  "comenzi": [
+    {
+      "id": 1,
+      "nume": "Buchet de trandafiri roșii",
+      "livrata": false,
+      "tip": "buchet"
+    },
+    {
+      "id": 2,
+      "nume": "Aranjament floral nuntă",
+      "livrata": true,
+      "tip": "aranjament"
+    },
+    {
+      "id": 3,
+      "nume": "Orhidee în ghiveci",
+      "livrata": false,
+      "tip": "planta"
+    },
+    {
+      "id": 5,
+      "nume": "Cactus în ghiveci",
+      "livrata": true,
+      "tip": "planta"
+    }
+  ]
+}

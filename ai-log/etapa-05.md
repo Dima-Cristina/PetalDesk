@@ -10,8 +10,7 @@
 ### 1. State, handlers and card components
 - Asked: for the code of stage 5 adapted to my theme (useState in App, handleToggleLivrata, handleDelete, checkbox and delete button in the card, props down the chain)
 - Got: App.jsx with the state `comenzi` and immutable updates with setComenzi((prev) => ...), ComandaList.jsx and ComandaCard.jsx that pass and call onToggle and onDelete, and a derived value `inPregatire` for the header counter
-- Changed or rejected: <WHAT YOU CHANGED, e.g. names, texts, colors, and why>
-
+-
 ### 2. Light/dark theme toggle
 - Asked: for the theme button and the CSS for data-theme, adapted to the variables from my stage 1 stylesheet
 - Got: a `tema` state, a handleTema function that writes data-theme on the html element, the blocks :root:not([data-theme="light"]) in @media and :root[data-theme="dark"], and new variables for the delete button color

@@ -3,7 +3,11 @@ import ComandaCard from "./ComandaCard.jsx";
 // Receives the list and the functions and passes them to every card.
 export default function ComandaList({ comenzi, onToggle, onDelete }) {
   if (comenzi.length === 0) {
-    return <p className="empty">Nu există nicio comandă.</p>;
+    return (
+      <p className="empty" data-testid="empty">
+        Nu există nicio comandă.
+      </p>
+    );
   }
 
   return (

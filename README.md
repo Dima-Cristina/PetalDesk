@@ -22,6 +22,11 @@ Sample data used across all stages:
 ```bash
 cd frontend
 npm install
+npm run api
+```
+In a second terminal:
+```bash
+cd frontend
 npm run dev
 ```
 Then open the address printed in the terminal (http://localhost:5173).
@@ -50,8 +55,29 @@ The list is rendered from the data, through two components:
 ## Stage 5: local state and events
 The list lives in React state. Checking and deleting work from the page,
 and the counters in the header follow automatically. A button in the
-header switches between light and dark mode. Changes are lost on refresh,
-which is what stage 6 and stage 10 fix.
+header switches between light and dark mode.
+
+## Stage 6: mock API
+Orders are loaded from the local JSON Server API configured by `frontend/db.json`.
+
+## Stage 7: order form and validation
+The florist can add bouquets, floral arrangements, and potted plants from
+a controlled form. Names are required and limited to 100 characters.
+Creating, marking as delivered, and deleting an order are saved through the
+API before the page updates, so changes survive a refresh.
+
+## Stage 7 verification
+
+| ID | Requirement | Where | How to check |
+| -- | ----------- | ----- | ------------ |
+| S7-R1 | Controlled fields for the order name and flower type | `frontend/src/components/ComandaForm.jsx` | Change both fields |
+| S7-R2 | Empty names show an inline error without an API request | `frontend/src/components/ComandaForm.jsx` | Submit an empty form |
+| S7-R3 | New orders use the API response and survive a refresh | `frontend/src/App.jsx`, `frontend/src/api.js` | Add an order, refresh |
+| S7-R4 | Delivery and deletion changes survive a refresh | `frontend/src/App.jsx`, `frontend/src/api.js` | Toggle or delete, refresh |
+| S7-R5 | Submit is disabled while saving; fields clear only after success | `frontend/src/components/ComandaForm.jsx` | Delay or stop the API |
+| S7-R6 | `tw.json` and required `data-testid` attributes are present | `tw.json`, `frontend/src/components/` | Inspect elements in the browser |
+| S7-R7 | Stage documentation and AI log are included | `README.md`, `ai-log/etapa-07.md` | Read the files |
+| S7-R8 | Stage 7 changes are committed and published | GitHub commit history | Check the published commit |
 
 
 ## Status
@@ -60,6 +86,8 @@ which is what stage 6 and stage 10 fix.
 - [x] Stage 3: Vite and React project
 - [x] Stage 4: components built from data
 - [x] Stage 5: local state and events
+- [x] Stage 6: data from a mock API
+- [x] Stage 7: form and validation
 
 ## Verification table
 

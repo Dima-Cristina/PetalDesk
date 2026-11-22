@@ -1,12 +1,13 @@
-import { useState } from "react";
+// useEffect runs code after the render (here: the request to the server).
+import { useEffect, useState } from "react";
 import ComandaList from "./components/ComandaList.jsx";
-
-// Sample data from the README (initial value only)
-const COMENZI_INITIALE = [
-  { id: 1, nume: "Buchet de trandafiri roșii", livrata: false, tip: "buchet" },
-  { id: 2, nume: "Aranjament floral nuntă", livrata: true, tip: "aranjament" },
-  { id: 3, nume: "Orhidee în ghiveci", livrata: false, tip: "planta" },
-];
+import ComandaForm from "./components/ComandaForm.jsx";
+import {
+  createComanda,
+  deleteComanda,
+  fetchComenzi,
+  updateComanda,
+} from "./api.js";
 
 // Starting theme: the one of the operating system
 function temaInitiala() {
@@ -14,18 +15,72 @@ function temaInitiala() {
 }
 
 export default function App() {
-  const [comenzi, setComenzi] = useState(COMENZI_INITIALE);
+  // The data comes from the server, so the list starts empty.
+  const [comenzi, setComenzi] = useState([]);
+  // The three situations of a loading: loading, success, error.
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [tema, setTema] = useState(temaInitiala);
 
-  // Immutable update: new list, new object for the changed item
-  function handleToggleLivrata(id) {
-    setComenzi((prev) =>
-      prev.map((c) => (c.id === id ? { ...c, livrata: !c.livrata } : c))
-    );
+  // Runs only once, after the first render ([] = no dependencies).
+  useEffect(() => {
+    // Cleanup flag: do not set state if the component is gone in the meantime.
+    let ignore = false;
+
+    // The function passed to useEffect cannot be async itself,
+    // so the async function is defined inside.
+    async function load() {
+      try {
+        const data = await fetchComenzi();
+        if (!ignore) setComenzi(data);
+      } catch (err) {
+        // Catches the error thrown by api.js (server down or bad status).
+        if (!ignore) setError(err.message);
+      } finally {
+        // Runs in both cases: the loading is over, whatever the result.
+        if (!ignore) setLoading(false);
+      }
+    }
+
+    load();
+
+    // Cleanup: React calls it when the component disappears.
+    return () => {
+      ignore = true;
+    };
+  }, []);
+
+  async function handleAdd(comanda) {
+    const creata = await createComanda(comanda);
+    setComenzi((prev) => [...prev, creata]);
+    setError(null);
   }
 
-  function handleDelete(id) {
-    setComenzi((prev) => prev.filter((c) => c.id !== id));
+  async function handleToggleLivrata(id) {
+    const comanda = comenzi.find((c) => c.id === id);
+    if (!comanda) return;
+
+    try {
+      const actualizata = await updateComanda(id, {
+        livrata: !comanda.livrata,
+      });
+      setComenzi((prev) =>
+        prev.map((c) => (c.id === id ? actualizata : c))
+      );
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function handleDelete(id) {
+    try {
+      await deleteComanda(id);
+      setComenzi((prev) => prev.filter((c) => c.id !== id));
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
   }
 
   // Theme switch: state for the button, data-theme attribute for the CSS
@@ -57,12 +112,30 @@ export default function App() {
 
       <main className="container">
         <section className="panel">
+          <h2>Adaugă o comandă florală</h2>
+          <ComandaForm onAdd={handleAdd} />
+        </section>
+        <section className="panel">
           <h2>Comenzile mele</h2>
-          <ComandaList
-            comenzi={comenzi}
-            onToggle={handleToggleLivrata}
-            onDelete={handleDelete}
-          />
+          {/* Each of the three situations has something on the screen. */}
+          {loading && (
+            <p className="info" data-testid="loading">
+              Se încarcă comenzile...
+            </p>
+          )}
+          {error && (
+            <p className="error" data-testid="error">
+              Nu am putut comunica cu serverul: {error}. Verifică dacă{" "}
+              <code>npm run api</code> rulează.
+            </p>
+          )}
+          {!loading && (
+            <ComandaList
+              comenzi={comenzi}
+              onToggle={handleToggleLivrata}
+              onDelete={handleDelete}
+            />
+          )}
         </section>
       </main>
     </>
