@@ -170,10 +170,10 @@ loading and error states, the flower type, delivery status and order ID.
 
 | ID | Requirement | Where | How to check |
 | -- | ----------- | ----- | ------------ |
-| S8-R1 | header navigation changes page without reload | [App.jsx](frontend/src/App.jsx), [Layout.jsx](frontend/src/components/Layout.jsx) | Open `/`, `/despre` and an unknown path |
-| S8-R2 | Order links open details at the `tw.json` resource route | [ComandaCard.jsx](frontend/src/components/ComandaCard.jsx), [tw.json](tw.json) | Click an order name; check that it opens `/comenzi/:id` |
-| S8-R3 | Detail page loads the matching order and exposes loading/error states | [ComandaDetaliuPage.jsx](frontend/src/pages/ComandaDetaliuPage.jsx), [api.js](frontend/src/api.js) | Refresh `/comenzi/1`; then try `/comenzi/999` |
-| S8-R4 | Component and page styles use CSS Modules; shared styles remain global | [components/](frontend/src/components/), [pages/](frontend/src/pages/), [index.css](frontend/src/index.css) | Inspect stylesheet imports |
-| S8-R5 | Stage 8 README and AI log are included | [README.md](README.md), [etapa-08.md](ai-log/etapa-08.md) | Read |
-| S8-R6 | Production build and lint pass | [package.json](frontend/package.json) | Run `npm run build` and `npm run lint` in `frontend/` |
-| S8-R7 | Stage 8 commit and push | Not done, as requested | Create and push the commit yourself |
+| S8-R1 | header navigation changes page without reload | [App.jsx](https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/frontend/src/App.jsx#L1-L19), [Layout.jsx](https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/frontend/src/components/Layout.jsx#L24-L50) | click links, watch Network|
+| S8-R2 | Order links open details [ComandaCard.jsx](https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/frontend/src/components/ComandaCard.jsx#L21-L29), [ComandaDetaliuPage.jsx] (https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/frontend/src/pages/ComandaDetaliuPage.jsx#L1-L73) | Click an order name |
+| S8-R3 | refresh on the detail URL works; missing id shows an error | [ComandaDetaliuPage.jsx](https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/frontend/src/pages/ComandaDetaliuPage.jsx#L7-L43) | Refresh `/comenzi/1`; then try `/comenzi/999` |
+| S8-R4 | unknown URL shows the app 404 page | [App.jsx](https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/frontend/src/App.jsx#L6-L17), [/NotFoundPage.jsx](https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/frontend/src/pages/NotFoundPage.jsx#L1-L13) | Inspect stylesheet imports |
+| S8-R5 | Stage 8 README and AI log are included | [README.md](https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/README.md), [etapa-08.md](https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/ai-log/etapa-08.md) | Read |
+| S8-R6 | Production build and lint pass | [package.json](https://github.com/Dima-Cristina/PetalDesk/blob/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed/frontend/package.json#L6-L11) | Run `npm run build` and `npm run lint` in `frontend/` |
+| S8-R7 | Stage 8 commit and push | https://github.com/Dima-Cristina/PetalDesk/commit/a0bf58fedefcda0aadc53e7d1fd468b5bd5721ed | Read |
